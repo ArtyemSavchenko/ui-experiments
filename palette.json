@@ -1,0 +1,108 @@
+{
+  "primary": {
+    "lighter": "#F6F2FF",
+    "light": "#9D81EF",
+    "main": "#744CED",
+    "dark": "#4E22D2"
+  },
+  "secondary": {
+    "light": "#B9A5F5",
+    "main": "#9689E1",
+    "dark": "#715DAE"
+  },
+  "error": {
+    "lighter": "#F9DBDB",
+    "light": "#F88082",
+    "main": "#DA1D20",
+    "dark": "#B7070A"
+  },
+  "warning": {
+    "light": "#FFF6DA",
+    "main": "#EEBA16"
+  },
+  "info": {
+    "light": "#EAF4FC",
+    "main": "#2C8CE5"
+  },
+  "success": {
+    "light": "#E9F7EF",
+    "main": "#27AE60"
+  },
+  "text": {
+    "primary": "#1F1D1C",
+    "secondary": "#4A3C73",
+    "tertiary": "#686E92",
+    "invertedPrimary": "#FFFFFF",
+    "accent": "#744CED",
+    "error": "#DA1D20",
+    "success": "#27AE60",
+    "disabled": "#9796A8"
+  },
+  "background": {
+    "primary": "#FFFFFF",
+    "secondary": "#FFFFFF",
+    "tertiary": "#FFFFFF",
+    "neutral": "#F8F8FE",
+    "invertedPrimary": "#1F1D1C",
+    "invertedNeutral": "#FCFAF9",
+    "line": "#EBE6FA",
+    "overlay": "#06095F99"
+  },
+  "controls": {
+    "light": "#F2F2F7",
+    "main": "#E3E2EB",
+    "dark": "#B9AED9",
+    "selected": "#E9DFFD",
+    "disabled": "#E6E7FA",
+    "focus": "#9D81EF",
+    "icon": "#FFFFFF",
+    "primaryBtnText": "#FFFFFF",
+    "textBtn": "#744CED"
+  },
+  "extra": {
+    "cremeBrulee": "#FEFFE4",
+    "beige": "#FFEAD6",
+    "springWater": "#D6E7FF",
+    "paleOrange": "#F6A468",
+    "skyBlue": "#85AFEE",
+    "indianRed": "#5B030C",
+    "neonGreen": "#B5E550",
+    "forestGreen": "#1EA689",
+    "coral": "#FF8C78",
+    "orange": "#E87920"
+  },
+  "gradient": {
+    "light": "linear-gradient(57deg, #C4C7FA 27.48%, #E0D6FE 80.93%)",
+    "main": "linear-gradient(90deg, #744CED 18.75%, #B650E6 88.02%)"
+  },
+  "operationStates": {
+    "initiated": "#EEBA16",
+    "inputDataWaiting": "#EEBA16",
+    "pending": "#EEBA16",
+    "authExtReady": "#E87920",
+    "authExtStarted": "#E87920",
+    "authExtFinished": "#E87920",
+    "authorized": "#E87920",
+    "captured": "#1EA689",
+    "partiallySettled": "#85AFEE",
+    "settled": "#9D81EF",
+    "partiallyCancelled": "#B5E550",
+    "cancelled": "#1EA689",
+    "partiallyRefunded": "#85AFEE",
+    "refunded": "#9D81EF",
+    "declined": "#DA1D20",
+    "failed": "#DA1D20",
+    "unknown": "#71758E",
+    "expired": "#71758E",
+    "deleted": "#71758E"
+  },
+  "operationHistory": {
+    "created": "#EEBA16",
+    "awaited": "#E87920",
+    "partiallyCompleted": "#B5E550",
+    "completed": "#1EA689",
+    "sent": "#2C8CE5",
+    "refunded": "#9887D5",
+    "err": "#DA1D20"
+  }
+}
