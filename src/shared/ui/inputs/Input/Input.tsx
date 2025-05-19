@@ -1,8 +1,10 @@
-import { FC, useRef } from "react";
-import { joinClasses } from "../../../utils/joinClasses";
-import { BaseInput } from "../BaseInput/BaseInput";
-import { InputWrapper } from "../InputWrapper/InputWrapper";
-import { TInputProps } from "./Input.types";
+import { FC, MouseEventHandler, useRef } from 'react';
+import { ClearIcon } from 'shared/assets/monochrome-svg-icons';
+import { RoundedIconBtn } from 'shared/ui/btns/RoundedIconBtn/RoundedIconBtn';
+import { joinClasses } from 'shared/utils';
+import { BaseInput } from '../BaseInput/BaseInput';
+import { InputWrapper } from '../InputWrapper';
+import { TInputProps } from './Input.types';
 
 export const Input: FC<TInputProps> = ({
   className,
@@ -16,31 +18,34 @@ export const Input: FC<TInputProps> = ({
 }) => {
   const inputInnerRef = useRef<HTMLInputElement>(null);
 
-  const handleClearBtnClick = () => {
-    onClear?.();
+  const handleClearBtnClick: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.stopPropagation();
 
-    if (inputInnerRef) {
-      inputInnerRef.current?.focus();
-    }
+    inputInnerRef.current?.focus();
+    onClear?.();
   };
 
   const isClearBtnVisible = value && onClear;
 
   const resolvedRightEl = (
-    <div className="input__right-el-box">
-      {rightEl}
-
+    <>
       {isClearBtnVisible && (
-        <button className="input__clear-btn" onClick={handleClearBtnClick}>
-          X
-        </button>
+        <RoundedIconBtn
+          className="input__clear-btn"
+          Icon={ClearIcon}
+          variant="ghost"
+          onClick={handleClearBtnClick}
+          tabIndex={-1}
+        />
       )}
-    </div>
+
+      {rightEl}
+    </>
   );
 
   return (
     <InputWrapper
-      className={joinClasses("input", className)}
+      className={joinClasses('input', className)}
       leftEl={leftStaticEl}
       rightEl={rightStaticEl}
     >
@@ -48,8 +53,8 @@ export const Input: FC<TInputProps> = ({
         leftEl={leftEl}
         rightEl={resolvedRightEl}
         value={value}
-        {...rest}
         ref={inputInnerRef}
+        {...rest}
       />
     </InputWrapper>
   );

@@ -1,0 +1,83 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 4px;
+  border-radius: var(--btn-border-radius);
+  line-height: var(--line-height);
+  cursor: pointer;
+  user-select: none;
+  border-width: 1px;
+  border-style: solid;
+  padding: 5px 10px;
+  transition-timing-function: var(--default-transition-timing-fn);
+  transition-duration: var(--default-transition-duration);
+  transition-property: color, background-color, border-color;
+
+  &:disabled {
+    pointer-events: none;
+  }
+
+  &:active {
+    transition-property: none;
+  }
+}
+
+.btn_variant_solid {
+  background-color: var(--solid-btn-bg);
+  border-color: var(--solid-btn-border-color);
+  color: var(--solid-btn-color);
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: var(--hover-solid-btn-bg);
+      border-color: var(--hover-solid-btn-border-color);
+      color: var(--hover-solid-btn-color);
+    }
+  }
+
+  &:active {
+    background-color: var(--active-solid-btn-bg);
+    border-color: var(--active-solid-btn-border-color);
+    color: var(--active-solid-btn-color);
+  }
+
+  &:disabled {
+    background-color: var(--disabled-solid-btn-bg);
+    border-color: var(--disabled-solid-btn-border-color);
+    color: var(--disabled-solid-btn-color);
+  }
+}
+
+.btn_variant_ghost {
+  background-color: var(--ghost-btn-bg);
+  border-color: var(--ghost-btn-border-color);
+  color: var(--ghost-btn-color);
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: var(--hover-ghost-btn-bg);
+      border-color: var(--hover-ghost-btn-border-color);
+      color: var(--hover-ghost-btn-color);
+    }
+  }
+
+  &:active {
+    background-color: var(--active-ghost-btn-bg);
+    border-color: var(--active-ghost-btn-border-color);
+    color: var(--active-ghost-btn-color);
+  }
+
+  &:disabled {
+    background-color: var(--disabled-ghost-btn-bg);
+    border-color: var(--disabled-ghost-btn-border-color);
+    color: var(--disabled-ghost-btn-color);
+  }
+}
+
+.btn__icon {
+  display: block;
+  height: calc(var(--line-height) * 1em);
+  flex-shrink: 0;
+  color: inherit;
+}

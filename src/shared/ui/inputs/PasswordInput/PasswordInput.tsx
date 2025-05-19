@@ -1,16 +1,26 @@
-import { FC, useState } from "react";
-import { Input } from "../Input/Input";
-import { TPasswordInputProps } from "./PasswordInput.types";
+import { FC, useState } from 'react';
+import {
+  VisibilityIcon,
+  VisibilityOffIcon,
+} from 'shared/assets/monochrome-svg-icons';
+import { RoundedIconBtn } from 'shared/ui/btns/RoundedIconBtn/RoundedIconBtn';
+import { Input } from '../Input/Input';
+import { TPasswordInputProps } from './PasswordInput.types';
 
 export const PasswordInput: FC<TPasswordInputProps> = ({ ...rest }) => {
-  const [isEyeBtnVisible, setIsEyeBtnVisible] = useState(true);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   return (
     <Input
       rightStaticEl={
-        <button onClick={() => setIsEyeBtnVisible((prev) => !prev)}>👁️</button>
+        <RoundedIconBtn
+          Icon={isPasswordVisible ? VisibilityOffIcon : VisibilityIcon}
+          variant="ghost"
+          onClick={() => setIsPasswordVisible((prev) => !prev)}
+          tabIndex={-1}
+        />
       }
-      type={isEyeBtnVisible ? "password" : "text"}
+      type={isPasswordVisible ? 'text' : 'password'}
       {...rest}
     />
   );

@@ -1,6 +1,7 @@
-import type { Preview } from "@storybook/react";
+import type { Preview } from '@storybook/react';
 
-import "../palette.css";
+import '../src/shared/styles/default-controls.css';
+import '../src/shared/styles/default-palette.css';
 
 const preview: Preview = {
   parameters: {

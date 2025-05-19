@@ -1,8 +1,0 @@
-.input-wrapper {
-  border: 1px solid var(--primary-main);
-  border-radius: 6px;
-  padding: 3px 10px;
-
-  display: flex;
-  align-items: center;
-}

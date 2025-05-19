@@ -1,13 +1,7 @@
 type TClasses = (string | undefined | null | false)[];
 
 export const joinClasses = (...classes: TClasses): string => {
-  const result: TClasses = [];
+  const filtered = classes.filter((item): item is string => Boolean(item));
 
-  classes.forEach((className) => {
-    if (className) {
-      result.push(className);
-    }
-  });
-
-  return result.join(" ");
+  return filtered.join(' ');
 };
