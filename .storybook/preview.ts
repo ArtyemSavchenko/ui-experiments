@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react';
 
+import '../src/app/styles/global.css';
 import '../src/shared/styles/default-controls.css';
 import '../src/shared/styles/default-palette.css';
 

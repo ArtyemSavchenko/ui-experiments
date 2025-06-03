@@ -3,7 +3,7 @@ import { FC, useState } from 'react';
 import { PasswordInput } from './PasswordInput';
 import { TPasswordInputProps } from './PasswordInput.types';
 
-const ControlledPasswordInputComponent: FC<TPasswordInputProps> = (props) => {
+const ControlledPasswordInput: FC<TPasswordInputProps> = (props) => {
   const [value, setValue] = useState('');
 
   return (
@@ -18,16 +18,13 @@ const ControlledPasswordInputComponent: FC<TPasswordInputProps> = (props) => {
 
 const meta: Meta<typeof PasswordInput> = {
   title: 'Inputs/PasswordInput',
-  component: ControlledPasswordInputComponent,
+  component: ControlledPasswordInput,
   tags: ['autodocs'],
+  args: { label: 'Пароль' },
 };
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const ControlledPasswordInput: Story = {
-  args: {
-    label: 'Password',
-  },
-};
+export const BasePasswordInput: Story = {};

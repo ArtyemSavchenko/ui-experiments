@@ -1,21 +1,22 @@
-.input-wrapper {
-  outline: none;
+.static-input-wrapper {
   border: 1px solid var(--input-border-color);
   border-radius: var(--input-border-radius);
-  padding: 3px 10px;
+  background-color: var(--bg--primary);
+  padding: 7px 10px;
   display: flex;
   align-items: center;
-  column-gap: 4px;
+  column-gap: 5px;
   transition-duration: var(--default-transition-duration);
   transition-timing-function: var(--default-transition-timing-fn);
   transition-property: border;
+  cursor: text;
 }
 
-.input-wrapper:focus-within {
+.static-input-wrapper:focus-within {
   border-color: var(--focus-input-border-color);
 }
 
-.input-wrapper__el-box {
+.static-input-wrapper__el-box {
   display: flex;
   align-items: center;
 }

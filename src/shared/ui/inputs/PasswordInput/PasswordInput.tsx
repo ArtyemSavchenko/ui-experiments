@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, MouseEventHandler, useState } from 'react';
 import {
   VisibilityIcon,
   VisibilityOffIcon,
@@ -10,13 +10,18 @@ import { TPasswordInputProps } from './PasswordInput.types';
 export const PasswordInput: FC<TPasswordInputProps> = ({ ...rest }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
+  const handleEyeBtnClick: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault();
+    setIsPasswordVisible((prev) => !prev);
+  };
+
   return (
     <Input
-      rightStaticEl={
+      staticRightEl={
         <RoundedIconBtn
           Icon={isPasswordVisible ? VisibilityOffIcon : VisibilityIcon}
           variant="ghost"
-          onClick={() => setIsPasswordVisible((prev) => !prev)}
+          onClick={handleEyeBtnClick}
           tabIndex={-1}
         />
       }

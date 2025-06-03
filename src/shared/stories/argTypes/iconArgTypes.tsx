@@ -10,11 +10,13 @@ const iconEls = Object.fromEntries(
 );
 
 export const iconComponentsArgType: InputType = {
+  control: 'select',
   options: Object.keys(iconComponents),
   mapping: iconComponents,
 };
 
 export const iconElsArgType: InputType = {
+  control: 'select',
   options: Object.keys(iconEls),
   mapping: iconEls,
 };

@@ -2,18 +2,21 @@ import { FC, MouseEventHandler, useRef } from 'react';
 import { ClearIcon } from 'shared/assets/monochrome-svg-icons';
 import { RoundedIconBtn } from 'shared/ui/btns/RoundedIconBtn/RoundedIconBtn';
 import { joinClasses } from 'shared/utils';
-import { BaseInput } from '../BaseInput/BaseInput';
-import { InputWrapper } from '../InputWrapper';
+import { LabeledInputWrapper } from '../LabeledInputWrapper';
+import { StaticInputWrapper } from '../StaticInputWrapper/StaticInputWrapper';
+import s from './Input.module.css';
 import { TInputProps } from './Input.types';
 
 export const Input: FC<TInputProps> = ({
   className,
-  leftStaticEl,
-  rightStaticEl,
-  leftEl,
-  rightEl,
-  value,
+  dynamicLeftEl,
+  dynamicRightEl,
+  label,
   onClear,
+  placeholder = ' ',
+  staticLeftEl,
+  staticRightEl,
+  value,
   ...rest
 }) => {
   const inputInnerRef = useRef<HTMLInputElement>(null);
@@ -27,7 +30,7 @@ export const Input: FC<TInputProps> = ({
 
   const isClearBtnVisible = value && onClear;
 
-  const resolvedRightEl = (
+  const resolvedDynamicRightEl = (
     <>
       {isClearBtnVisible && (
         <RoundedIconBtn
@@ -39,23 +42,30 @@ export const Input: FC<TInputProps> = ({
         />
       )}
 
-      {rightEl}
+      {dynamicRightEl}
     </>
   );
 
   return (
-    <InputWrapper
+    <StaticInputWrapper
       className={joinClasses('input', className)}
-      leftEl={leftStaticEl}
-      rightEl={rightStaticEl}
+      leftEl={staticLeftEl}
+      rightEl={staticRightEl}
     >
-      <BaseInput
-        leftEl={leftEl}
-        rightEl={resolvedRightEl}
-        value={value}
-        ref={inputInnerRef}
-        {...rest}
-      />
-    </InputWrapper>
+      <LabeledInputWrapper
+        className="input__labeled-wrapper"
+        rightEl={resolvedDynamicRightEl}
+        leftEl={dynamicLeftEl}
+        label={label}
+      >
+        <input
+          className={joinClasses('input__control', s['input__control'])}
+          ref={inputInnerRef}
+          value={value}
+          placeholder={placeholder}
+          {...rest}
+        />
+      </LabeledInputWrapper>
+    </StaticInputWrapper>
   );
 };

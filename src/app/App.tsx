@@ -3,8 +3,8 @@ import { Input } from 'shared/ui/inputs';
 import './App.module.css';
 
 import 'shared/styles/default-controls.css';
-// dont delete this
 import 'shared/styles/default-palette.css';
+import './styles/global.css';
 
 function App() {
   const [input, setInput] = useState('Hello world');

@@ -1,0 +1,9 @@
+.input__control {
+  border: none;
+  outline: none;
+  font: inherit;
+  padding: 0;
+  flex-grow: 1;
+  background-color: transparent;
+  line-height: var(--line-height);
+}

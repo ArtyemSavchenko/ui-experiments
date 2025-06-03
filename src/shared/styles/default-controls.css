@@ -45,6 +45,7 @@
   /* Inputs */
   --input-border-radius: var(--default-control-border-radius);
 
+  --input-bg: var(--bg--primary);
   --input-border-color: var(--bg--line);
   --focus-input-border-color: var(--primary--main);
   --input-raised-label-fz: 0.8em;

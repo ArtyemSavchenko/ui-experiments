@@ -8,7 +8,12 @@ const meta: Meta<typeof RoundedIconBtn> = {
   tags: ['autodocs'],
   argTypes: {
     Icon: iconComponentsArgType,
+    variant: {
+      control: { type: 'radio' },
+      options: ['solid', 'ghost'],
+    },
   },
+  args: { variant: 'solid' },
 };
 
 export default meta;
