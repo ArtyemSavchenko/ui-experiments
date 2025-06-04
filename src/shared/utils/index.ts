@@ -1,1 +1,1 @@
-export { joinClasses } from './joinClasses';
+export * from './joinClasses';

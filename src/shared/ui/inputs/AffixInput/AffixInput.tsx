@@ -4,7 +4,6 @@ import { RoundedIconBtn } from 'shared/ui/btns';
 import { joinClasses } from 'shared/utils';
 import { BaseAffixInput } from '../BaseAffixInput';
 import { LabeledInputWrapper } from '../LabeledInputWrapper';
-import s from './AffixInput.module.css';
 import { TAffixInputProps } from './AffixInput.types';
 
 export const AffixInput: FC<TAffixInputProps> = ({

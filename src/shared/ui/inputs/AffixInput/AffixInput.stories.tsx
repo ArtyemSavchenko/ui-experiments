@@ -52,3 +52,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const ControlledAffixInput: Story = {};
+
+export const PercentInput: Story = {
+  args: {
+    label: 'Жирность',
+    placeholder: '0',
+    suffix: '%',
+    prefix: '',
+  },
+};

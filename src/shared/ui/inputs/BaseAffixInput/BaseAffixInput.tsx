@@ -1,4 +1,6 @@
 import { FC, useLayoutEffect, useRef } from 'react';
+import { CSS_UTILS } from 'shared/styles/utils';
+import { joinClasses } from 'shared/utils';
 import s from './BaseAffixInput.module.css';
 import { TBaseAffixInputProps } from './BaseAffixInput.types';
 
@@ -20,8 +22,6 @@ export const BaseAffixInput: FC<TBaseAffixInputProps> = ({
     invisibleValueSpanRef.current.innerText =
       inputRef.current.value || placeholder || '';
     inputRef.current.style.width = `${invisibleValueSpanRef.current.offsetWidth + 1}px`;
-
-    console.log(invisibleValueSpanRef.current.innerText);
   }, [inputRef.current?.value, value]);
 
   return (
@@ -42,7 +42,10 @@ export const BaseAffixInput: FC<TBaseAffixInputProps> = ({
         />
 
         <span
-          className={s['base-affix-input__invisible-value']}
+          className={joinClasses(
+            s['base-affix-input__invisible-value'],
+            CSS_UTILS.textEllipsis
+          )}
           ref={invisibleValueSpanRef}
         />
       </div>

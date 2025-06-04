@@ -32,7 +32,4 @@
   visibility: hidden;
   width: min-content;
   display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }

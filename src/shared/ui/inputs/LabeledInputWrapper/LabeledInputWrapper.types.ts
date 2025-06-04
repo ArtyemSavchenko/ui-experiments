@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { TChildren, TCLassName } from 'shared/types';
 import { TBaseLabeledInputWrapperProps } from '../BaseLabeledInputWrapper';
 import { TStaticInputWrapperProps } from '../StaticInputWrapper';
 
@@ -13,7 +13,6 @@ type TResolvedLabeledInputWrapperProps = {
 } & Pick<TBaseLabeledInputWrapperProps, 'label'>;
 
 export type TLabeledInputWrapperProps = TResolvedStaticWrapperProps &
-  TResolvedLabeledInputWrapperProps & {
-    className?: string;
-    children: ReactNode;
-  };
+  TResolvedLabeledInputWrapperProps &
+  TChildren &
+  TCLassName;
