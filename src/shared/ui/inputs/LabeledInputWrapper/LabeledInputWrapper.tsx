@@ -1,70 +1,31 @@
 import { FC } from 'react';
 import { joinClasses } from 'shared/utils';
-import s from './LabeledInputWrapper.module.css';
+import { BaseLabeledInputWrapper } from '../BaseLabeledInputWrapper';
+import { StaticInputWrapper } from '../StaticInputWrapper';
 import { TLabeledInputWrapperProps } from './LabeledInputWrapper.types';
 
 export const LabeledInputWrapper: FC<TLabeledInputWrapperProps> = ({
   className,
+  staticLeftEl,
+  staticRightEl,
   label,
-  rightEl,
-  leftEl,
+  dynamicLeftEl,
+  dynamicRightEl,
   children,
-  ...rest
 }) => {
   return (
-    <div
-      className={joinClasses(
-        className,
-        'labeled-input-wrapper',
-        s['labeled-input-wrapper']
-      )}
-      {...rest}
+    <StaticInputWrapper
+      className={joinClasses('labeled-input-wrapper', className)}
+      leftEl={staticLeftEl}
+      rightEl={staticRightEl}
     >
-      {label && (
-        <span
-          className={joinClasses(
-            'labeled-input-wrapper__label',
-            s['labeled-input-wrapper__label']
-          )}
-        >
-          {label}
-        </span>
-      )}
-
-      <div
-        className={joinClasses(
-          'labeled-input-wrapper__input-wrapper',
-          s['labeled-input-wrapper__input-wrapper']
-        )}
+      <BaseLabeledInputWrapper
+        rightEl={dynamicRightEl}
+        leftEl={dynamicLeftEl}
+        label={label}
       >
-        {leftEl && (
-          <div
-            className={joinClasses(
-              'labeled-input-wrapper__el-box',
-              'labeled-input-wrapper__el-box_left',
-              s['labeled-input-wrapper__el-box'],
-              s['labeled-input-wrapper__el-box_left']
-            )}
-          >
-            {leftEl}
-          </div>
-        )}
-
         {children}
-      </div>
-
-      {rightEl && (
-        <div
-          className={joinClasses(
-            'labeled-input-wrapper__el-box',
-            'labeled-input-wrapper__el-box_right',
-            s['labeled-input-wrapper__el-box'],
-            s['labeled-input-wrapper__el-box_right']
-          )}
-        >
-          {rightEl}
-        </div>
-      )}
-    </div>
+      </BaseLabeledInputWrapper>
+    </StaticInputWrapper>
   );
 };

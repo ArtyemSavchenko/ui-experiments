@@ -1,0 +1,38 @@
+.base-affix-input {
+  display: flex;
+  align-items: baseline;
+  max-width: 100%;
+}
+
+.base-affix-input__sized-box {
+  display: grid;
+  align-items: baseline;
+  flex-grow: 1;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.base-affix-input__invisible-value,
+.base-affix-input__control {
+  grid-area: 1/-1;
+  font: inherit;
+}
+
+.base-affix-input__control {
+  border: none;
+  outline: none;
+  font: inherit;
+  padding: 0;
+  flex-grow: 1;
+  background-color: transparent;
+  line-height: var(--line-height);
+}
+
+.base-affix-input__invisible-value {
+  visibility: hidden;
+  width: min-content;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

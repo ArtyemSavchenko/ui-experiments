@@ -1,20 +1,23 @@
 import { FC, MouseEventHandler, useRef } from 'react';
 import { ClearIcon } from 'shared/assets/monochrome-svg-icons';
-import { RoundedIconBtn } from 'shared/ui/btns/RoundedIconBtn/RoundedIconBtn';
+import { RoundedIconBtn } from 'shared/ui/btns';
 import { joinClasses } from 'shared/utils';
+import { BaseAffixInput } from '../BaseAffixInput';
 import { LabeledInputWrapper } from '../LabeledInputWrapper';
-import s from './Input.module.css';
-import { TInputProps } from './Input.types';
+import s from './AffixInput.module.css';
+import { TAffixInputProps } from './AffixInput.types';
 
-export const Input: FC<TInputProps> = ({
+export const AffixInput: FC<TAffixInputProps> = ({
   className,
   dynamicLeftEl,
   dynamicRightEl,
   label,
   onClear,
   placeholder = ' ',
+  prefix,
   staticLeftEl,
   staticRightEl,
+  suffix,
   value,
   ...rest
 }) => {
@@ -54,9 +57,9 @@ export const Input: FC<TInputProps> = ({
       dynamicRightEl={resolvedDynamicRightEl}
       label={label}
     >
-      <input
-        className={joinClasses('input__control', s['input__control'])}
-        ref={inputInnerRef}
+      <BaseAffixInput
+        prefix={prefix}
+        suffix={suffix}
         value={value}
         placeholder={placeholder}
         {...rest}

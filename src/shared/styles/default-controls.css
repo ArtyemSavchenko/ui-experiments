@@ -3,7 +3,7 @@
 
   --line-height: 1.3;
   --default-transition-duration: 150ms;
-  /* --default-transition-duration: 500ms; */
+  /* --default-transition-duration: 1000ms; */
   --default-transition-timing-fn: ease-out;
   --default-control-border-radius: 6px;
 
@@ -48,5 +48,5 @@
   --input-bg: var(--bg--primary);
   --input-border-color: var(--bg--line);
   --focus-input-border-color: var(--primary--main);
-  --input-raised-label-fz: 0.8em;
+  --input-raised-label-fz: 1em;
 }

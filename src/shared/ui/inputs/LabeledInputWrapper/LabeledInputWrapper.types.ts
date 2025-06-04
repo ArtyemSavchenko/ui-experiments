@@ -1,9 +1,19 @@
 import { ReactNode } from 'react';
+import { TBaseLabeledInputWrapperProps } from '../BaseLabeledInputWrapper';
+import { TStaticInputWrapperProps } from '../StaticInputWrapper';
 
-export type TLabeledInputWrapperProps = {
-  children: ReactNode;
-  className?: string;
-  label: string;
-  leftEl?: ReactNode;
-  rightEl?: ReactNode;
+type TResolvedStaticWrapperProps = {
+  staticLeftEl?: TStaticInputWrapperProps['leftEl'];
+  staticRightEl?: TStaticInputWrapperProps['rightEl'];
 };
+
+type TResolvedLabeledInputWrapperProps = {
+  dynamicLeftEl?: TBaseLabeledInputWrapperProps['leftEl'];
+  dynamicRightEl?: TBaseLabeledInputWrapperProps['rightEl'];
+} & Pick<TBaseLabeledInputWrapperProps, 'label'>;
+
+export type TLabeledInputWrapperProps = TResolvedStaticWrapperProps &
+  TResolvedLabeledInputWrapperProps & {
+    className?: string;
+    children: ReactNode;
+  };

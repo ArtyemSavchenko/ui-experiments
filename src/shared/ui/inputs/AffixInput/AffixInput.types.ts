@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import { TBaseAffixInputProps } from '../BaseAffixInput';
 import { TBaseLabeledInputWrapperProps } from '../BaseLabeledInputWrapper';
 import { TStaticInputWrapperProps } from '../StaticInputWrapper';
 
@@ -12,7 +12,7 @@ type TResolvedLabeledInputWrapperProps = {
   dynamicRightEl?: TBaseLabeledInputWrapperProps['rightEl'];
 } & Pick<TBaseLabeledInputWrapperProps, 'label'>;
 
-export type TInputProps = ComponentProps<'input'> &
+export type TAffixInputProps = TBaseAffixInputProps &
   TResolvedStaticWrapperProps &
   TResolvedLabeledInputWrapperProps & {
     onClear?: () => void;
