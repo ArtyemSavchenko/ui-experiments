@@ -12,6 +12,6 @@ export default defineConfig({
     react(),
     svgr(),
     tsconfigPaths(),
-    process.env.NODE_ENV === 'development' && svgColorReplacePlugin(ICONS_PATH),
-  ].filter(Boolean),
+    svgColorReplacePlugin(ICONS_PATH),
+  ],
 });
