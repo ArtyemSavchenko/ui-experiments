@@ -44,7 +44,7 @@ jobs:
             IMAGE_NAME=$CONTAINER_NAME:latest
             cd $TEMP_DIR
 
-            docker build -f $DOCKER_FILE -t $IMAGE_NAME .
+            docker buildx build -f $DOCKER_FILE -t $IMAGE_NAME .
 
             docker stop $CONTAINER_NAME || true
             docker rm $CONTAINER_NAME || true
