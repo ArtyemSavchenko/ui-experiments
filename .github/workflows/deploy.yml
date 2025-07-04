@@ -7,7 +7,7 @@ on:
 
 env:
   PROJECT_NAME: ui-experiments
-  TAR_NAME: ${{ env.PROJECT_NAME }}.tar
+  TAR_NAME: ${{ vars.PROJECT_NAME }}.tar
   DOCKER_FILE: ./docker.storybook
 
 jobs:
