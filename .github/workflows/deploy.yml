@@ -8,7 +8,7 @@ on:
 env:
   PROJECT_NAME: ui-experiments
   TEMP_DIR: /home/${{ secrets.SSH_USER }}/temp
-  DOCKER_FILE: ./docker.storybook
+  DOCKER_FILE: docker.storybook
 
 jobs:
   build-and-deploy:
@@ -33,19 +33,23 @@ jobs:
         uses: appleboy/ssh-action@master
         env:
           TEMP_DIR: ${{ env.TEMP_DIR }}
-          PROJECT_NAME: ${{ env.PROJECT_NAME }}
           DOCKER_FILE: ${{ env.DOCKER_FILE }}
+          CONTAINER_NAME: ${{ env.PROJECT_NAME }}
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          envs: TEMP_DIR,PROJECT_NAME,DOCKER_FILE
+          envs: TEMP_DIR,CONTAINER_NAME,DOCKER_FILE
           script: |
             cd $TEMP_DIR
-            IMAGE_NAME=$PROJECT_NAME:latest
-            docker stop $PROJECT_NAME || true
-            docker rm $PROJECT_NAME || true
-            docker rmi $IMAGE_NAME || true
+            IMAGE_NAME=$CONTAINER_NAME:latest
 
             docker build -f $DOCKER_FILE -t $IMAGE_NAME .
-            docker run -d -p 80:80 --name $PROJECT_NAME $IMAGE_NAME
+
+            docker stop $CONTAINER_NAME || true
+            docker rm $CONTAINER_NAME || true
+
+            docker run -d -p 80:80 --name $CONTAINER_NAME $IMAGE_NAME
+
+            cd ..
+            rm -rf $TEMP_DIR

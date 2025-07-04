@@ -30,7 +30,7 @@ const leftElTypes: InputType = {
 };
 
 const meta: Meta<typeof AffixInput> = {
-  title: 'Inputs/AffixInput',
+  title: 'Inputs/AffixInput1',
   component: ControlledAffixInputComponent,
   tags: ['autodocs'],
   argTypes: {
