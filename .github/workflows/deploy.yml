@@ -3,7 +3,7 @@ name: Deploy Storybook
 on:
   push:
     branches:
-      - fix/nginx
+      - main
 
 env:
   PROJECT_NAME: ui-experiments
