@@ -47,7 +47,7 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
+          envs: TAR_NAME,PROJECT_NAME          
           script: |
             docker load -i $TAR_NAME
             docker run -d -p 80:80 --name $PROJECT_NAME $PROJECT_NAME:latest
