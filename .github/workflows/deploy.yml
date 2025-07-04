@@ -51,3 +51,5 @@ jobs:
             docker stop $PROJECT_NAME || true
             docker rm $PROJECT_NAME || true
             docker rmi $IMAGE_NAME || true
+            docker load -i $TAR_NAME
+            docker run -d -p 80:80 --name $PROJECT_NAME $IMAGE_NAME
