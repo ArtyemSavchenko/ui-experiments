@@ -33,7 +33,6 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
           source: '${{ env.TAR_NAME }}'
           target: '/home/${{ secrets.SSH_USER }}/'
 
@@ -46,7 +45,7 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          envs: TAR_NAME,PROJECT_NAME          
+          envs: TAR_NAME,PROJECT_NAME
           script: |
             IMAGE_NAME=$PROJECT_NAME:latest
             docker stop $PROJECT_NAME || true
