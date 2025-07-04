@@ -3,12 +3,12 @@ name: Deploy Storybook
 on:
   push:
     branches:
-      - main
+      - feature/server-build
 
 env:
   PROJECT_NAME: ui-experiments
-  TAR_NAME: ${{ vars.PROJECT_NAME }}.tar
-  DOCKER_FILE: ./docker.storybook
+  TEMP_DIR: /home/${{ secrets.SSH_USER }}/temp
+  DOCKER_FILE: docker.storybook
 
 jobs:
   build-and-deploy:
@@ -19,37 +19,38 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Build Docker image
-        run: |
-          docker build -f ${{ env.DOCKER_FILE }} -t ${{ env.PROJECT_NAME }} .
-          docker save ${{ env.PROJECT_NAME }}:latest > ${{ env.TAR_NAME }}
-
-      - name: Transfer image to server via SCP
+      - name: Transfer files to server via SCP
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: '${{ env.TAR_NAME }}'
-          target: '/home/${{ secrets.SSH_USER }}/'
+          source: '.'
+          target: '${{ env.TEMP_DIR }}'
+          strip_components: 0
 
       - name: Deploy on server via SSH
         uses: appleboy/ssh-action@master
         env:
-          TAR_NAME: ${{ env.TAR_NAME }}
-          PROJECT_NAME: ${{ env.PROJECT_NAME }}
+          TEMP_DIR: ${{ env.TEMP_DIR }}
+          DOCKER_FILE: ${{ env.DOCKER_FILE }}
+          CONTAINER_NAME: ${{ env.PROJECT_NAME }}
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          envs: TAR_NAME,PROJECT_NAME
+          envs: TEMP_DIR,CONTAINER_NAME,DOCKER_FILE
           script: |
-            IMAGE_NAME=$PROJECT_NAME:latest
-            docker stop $PROJECT_NAME || true
-            docker rm $PROJECT_NAME || true
-            docker rmi $IMAGE_NAME || true
-            docker load -i $TAR_NAME
-            docker run -d -p 80:80 --name $PROJECT_NAME $IMAGE_NAME
+            IMAGE_NAME=$CONTAINER_NAME:latest
+            cd $TEMP_DIR
+
+            docker buildx build -f $DOCKER_FILE -t $IMAGE_NAME .
+
+            docker stop $CONTAINER_NAME || true
+            docker rm $CONTAINER_NAME || true
+
+            docker run -d -p 80:80 --name $CONTAINER_NAME $IMAGE_NAME
+
+            docker image prune -f
+            cd ..
+            rm -rf $TEMP_DIR
