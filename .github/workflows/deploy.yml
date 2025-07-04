@@ -3,7 +3,7 @@ name: Deploy Storybook
 on:
   push:
     branches:
-      - main
+      - fix/nginx
 
 env:
   PROJECT_NAME: ui-experiments
@@ -46,7 +46,7 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          envs: TAR_NAME,PROJECT_NAME          
+          envs: TAR_NAME,PROJECT_NAME
           script: |
             IMAGE_NAME=$PROJECT_NAME:latest
             docker stop $PROJECT_NAME || true
