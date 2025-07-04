@@ -1,19 +1,21 @@
 import { FC, useRef } from 'react';
 import { joinClasses } from 'shared/utils';
+import { BaseAffixInput } from '../BaseAffixInput';
 import { useInputClearBtn } from '../hooks/useInputClearBtn';
 import { LabeledInputWrapper } from '../LabeledInputWrapper';
-import s from './Input.module.css';
-import { TInputProps } from './Input.types';
+import { TAffixInputProps } from './AffixInput.types';
 
-export const Input: FC<TInputProps> = ({
+export const AffixInput: FC<TAffixInputProps> = ({
   className,
   dynamicLeftEl,
   dynamicRightEl,
   label,
   onClear,
   placeholder = ' ',
+  prefix,
   staticLeftEl,
   staticRightEl,
+  suffix,
   value,
   ...rest
 }) => {
@@ -35,9 +37,9 @@ export const Input: FC<TInputProps> = ({
       dynamicRightEl={resolvedDynamicRightEl}
       label={label}
     >
-      <input
-        className={joinClasses('input__control', s['input__control'])}
-        ref={inputInnerRef}
+      <BaseAffixInput
+        prefix={prefix}
+        suffix={suffix}
         value={value}
         placeholder={placeholder}
         {...rest}

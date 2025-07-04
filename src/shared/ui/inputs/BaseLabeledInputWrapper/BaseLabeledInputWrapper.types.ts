@@ -1,8 +1,9 @@
 import { ReactNode } from 'react';
 import { TChildren, TCLassName } from 'shared/types';
 
-export type TStaticInputWrapperProps = TChildren &
-  TCLassName & {
+export type TBaseLabeledInputWrapperProps = TCLassName &
+  TChildren & {
+    label: string;
     leftEl?: ReactNode;
     rightEl?: ReactNode;
   };

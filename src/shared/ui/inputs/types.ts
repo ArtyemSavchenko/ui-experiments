@@ -1,6 +1,5 @@
-import { TChildren, TCLassName } from 'shared/types';
-import { TBaseLabeledInputWrapperProps } from '../BaseLabeledInputWrapper';
-import { TStaticInputWrapperProps } from '../StaticInputWrapper';
+import { TBaseLabeledInputWrapperProps } from './BaseLabeledInputWrapper';
+import { TStaticInputWrapperProps } from './StaticInputWrapper';
 
 type TResolvedStaticWrapperProps = {
   staticLeftEl?: TStaticInputWrapperProps['leftEl'];
@@ -12,7 +11,7 @@ type TResolvedLabeledInputWrapperProps = {
   dynamicRightEl?: TBaseLabeledInputWrapperProps['rightEl'];
 } & Pick<TBaseLabeledInputWrapperProps, 'label'>;
 
-export type TLabeledInputWrapperProps = TResolvedStaticWrapperProps &
-  TResolvedLabeledInputWrapperProps &
-  TChildren &
-  TCLassName;
+export type TInputExtraProps = TResolvedStaticWrapperProps &
+  TResolvedLabeledInputWrapperProps & {
+    onClear?: () => void;
+  };

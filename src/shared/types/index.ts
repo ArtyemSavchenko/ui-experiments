@@ -1,1 +1,1 @@
-export { type TSvgIcon } from './TSvgIcon';
+export * from './utils';
