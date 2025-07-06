@@ -1,0 +1,66 @@
+:root {
+  --primary--lighter: #f6f2ff;
+  --primary--light: #9d81ef;
+  --primary--main: #744ced;
+  --primary--dark: #4e22d2;
+
+  /* --secondary--light: #b9a5f5; */
+  /* --secondary--main: #9689e1; */
+  /* --secondary--dark: #715dae; */
+
+  /* --error--lighter: #f9dbdb; */
+  /* --error--light: #f88082; */
+  /* --error--main: #da1d20; */
+  /* --error--dark: #b7070a; */
+
+  /* --warning--light: #fff6da; */
+  /* --warning--main: #eeba16; */
+
+  /* --info--light: #eaf4fc; */
+  /* --info--main: #2c8ce5; */
+
+  /* --success--light: #e9f7ef; */
+  /* --success--main: #27ae60; */
+
+  /* --txt--primary: #1f1d1c; */
+  /* --txt--secondary: #4a3c73; */
+  /* --txt--tertiary: #686e92; */
+  --txt--inverted-primary: #ffffff;
+  --txt--accent: #744ced;
+  /* --txt--error: #da1d20; */
+  /* --txt--success: #27ae60; */
+  --txt--disabled: #9796a8;
+
+  --bg--primary: #fff;
+  /* --bg--secondary: #ffffff; */
+  /* --bg--tertiary: #ffffff; */
+  /* --bg--neutral: #f8f8fe; */
+  /* --bg--invertedPrimary: #1f1d1c; */
+  /* --bg--invertedNeutral: #fcfaf9; */
+  --bg--line: #ebe6fa;
+  /* --bg--overlay: #06095f99; */
+
+  /* --controls--light: #f2f2f7; */
+  /* --controls--main: #e3e2eb; */
+  /* --controls--dark: #b9aed9; */
+  --controls--selected: #e9dffd;
+  --controls--disabled: #e6e7fa;
+  /* --controls--focus: #9d81ef; */
+  /* --controls--icon: #ffffff; */
+  /* --controls--primaryBtnText: #ffffff; */
+  /* --controls--textBtn: #744ced; */
+
+  /* --extra--cremeBrulee: #feffe4; */
+  /* --extra--beige: #ffead6; */
+  /* --extra--springWater: #d6e7ff; */
+  /* --extra--paleOrange: #f6a468; */
+  /* --extra--skyBlue: #85afee; */
+  /* --extra--indianRed: #5b030c; */
+  /* --extra--neonGreen: #b5e550; */
+  /* --extra--forestGreen: #1ea689; */
+  /* --extra--coral: #ff8c78; */
+  /* --extra--orange: #e87920; */
+
+  /* --gradient--light: linear-gradient(57deg, #c4c7fa 27.48%, #e0d6fe 80.93%); */
+  /* --gradient--main: linear-gradient(90deg, #744ced 18.75%, #b650e6 88.02%); */
+}
