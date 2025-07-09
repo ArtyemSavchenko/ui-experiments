@@ -3,12 +3,12 @@ name: Deploy Storybook
 on:
   push:
     branches:
-      - feature/server-build
+      - main
 
 env:
   PROJECT_NAME: ui-experiments
   TEMP_DIR: /home/${{ secrets.SSH_USER }}/temp
-  DOCKER_FILE: docker.storybook
+  DOCKER_FILE: dockerfile.storybook
 
 jobs:
   build-and-deploy:
@@ -49,7 +49,7 @@ jobs:
             docker stop $CONTAINER_NAME || true
             docker rm $CONTAINER_NAME || true
 
-            docker run -d -p 80:80 --name $CONTAINER_NAME $IMAGE_NAME
+            docker run -d -p 80:80 --restart unless-stopped --name $CONTAINER_NAME $IMAGE_NAME
 
             docker image prune -f
             cd ..
