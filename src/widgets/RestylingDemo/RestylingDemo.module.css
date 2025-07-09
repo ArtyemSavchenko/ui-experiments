@@ -1,0 +1,25 @@
+.restyling-demo__vars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.restyling-demo__section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  max-width: 500px;
+  min-width: 320px;
+}
+
+.restyling-demo__controls-demo {
+  padding: 20px;
+  position: sticky;
+  bottom: 10px;
+  background-color: var(--bg--primary);
+  padding: 20px;
+  border-radius: var(--default-control-border-radius);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}

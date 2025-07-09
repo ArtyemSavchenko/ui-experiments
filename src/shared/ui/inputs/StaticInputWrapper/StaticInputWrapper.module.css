@@ -1,5 +1,5 @@
 .static-input-wrapper {
-  border: 1px solid var(--input-border-color);
+  border: 2px solid var(--input-border-color);
   border-radius: var(--input-border-radius);
   background-color: var(--bg--primary);
   padding: 7px 10px;
