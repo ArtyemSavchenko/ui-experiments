@@ -5,7 +5,7 @@ const minifyCss = (css: string) => {
   return css.replace(CSS_COMMENTS_REG_EXP, '').replace(/\s+/g, '');
 };
 
-export const getCssVariables = (css: string) => {
+export const getCssProperties = (css: string) => {
   const minifiedCss = minifyCss(css);
 
   const result: Record<string, string> = {};

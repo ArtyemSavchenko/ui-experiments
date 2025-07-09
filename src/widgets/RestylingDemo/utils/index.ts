@@ -1,3 +1,3 @@
-export * from './getCssVariables';
-export * from './getGroupedCssVariables';
+export * from './getCssProperties';
+export * from './getGroupedCssProperties';
 export * from './setObjProperty';

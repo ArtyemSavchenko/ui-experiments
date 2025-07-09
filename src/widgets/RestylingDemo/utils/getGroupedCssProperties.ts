@@ -1,6 +1,6 @@
 import { TCssProperties, TGroupedCssProperties } from '../types';
 
-export const getGroupedCssVariables = <T extends readonly string[]>(
+export const getGroupedCssProperties = <T extends readonly string[]>(
   cssProperties: TCssProperties,
   groups: T
 ): TGroupedCssProperties<T> => {

@@ -8,6 +8,6 @@ export type TGroupedCssProperties<T extends readonly string[]> = {
   [K in TGroups<T>]?: TCssProperties;
 };
 
-export type TControlsGroupedProperties = TGroupedCssProperties<
+export type TControlsGroupedCssProperties = TGroupedCssProperties<
   typeof CSS_GROUPS
 >;

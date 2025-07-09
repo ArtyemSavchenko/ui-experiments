@@ -2,15 +2,9 @@ import { FC, useState } from 'react';
 import { Btn } from 'shared/ui/btns';
 import { Input } from 'shared/ui/inputs';
 import { joinClasses } from 'shared/utils';
-import { TCssProperties } from '../types';
 import s from './ControlsDemo.module.css';
 import { TControlsDemoProps } from './ControlsDemo.types';
-
-const getCssStringFromCssProperties = (cssProperties: TCssProperties) => {
-  return Object.entries(cssProperties)
-    .map(([key, value]) => `${key}:${value};`)
-    .join('');
-};
+import { getCssStringFromCssProperties } from './utils';
 
 export const ControlsDemo: FC<TControlsDemoProps> = ({
   className,
